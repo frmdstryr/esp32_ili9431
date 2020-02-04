@@ -15,13 +15,15 @@
 #include "driver/gpio.h"
 #include "../lvgl/lvgl.h"
 #include "../lv_examples/lv_apps/demo/demo.h"
+//#include "../lv_examples/lv_apps/benchmark/benchmark.h"
 #include "esp_freertos_hooks.h"
 
 
-#include "../drv/disp_spi.h"
-#include "../drv/ili9341.h"
-#include "../drv/tp_spi.h"
-#include "../drv/xpt2046.h"
+#include "../drv/disp_par.h"
+//#include "../drv/ili9341.h"
+#include "../drv/ili9481.h"
+//#include "../drv/tp_spi.h"
+//#include "../drv/xpt2046.h"
 
 static void IRAM_ATTR lv_tick_task(void);
 
@@ -29,27 +31,31 @@ void app_main()
 {
 	lv_init();
 
-	disp_spi_init();
-	ili9431_init();
+	disp_par_init();
+    ili9481_init();
 
-	tp_spi_init();
-    xpt2046_init();
+    //disp_spi_init();
+    //ili9431_init();
+	//tp_spi_init();
+    //xpt2046_init();
 
 	lv_disp_drv_t disp;
 	lv_disp_drv_init(&disp);
-	disp.disp_flush = ili9431_flush;
-    disp.disp_fill = ili9431_fill;
+	disp.disp_flush = ili9481_flush;
+    disp.disp_fill = ili9481_fill;
 	lv_disp_drv_register(&disp);
 
-    lv_indev_drv_t indev;
-    lv_indev_drv_init(&indev);
-    indev.read = xpt2046_read;
-    indev.type = LV_INDEV_TYPE_POINTER;
-    lv_indev_drv_register(&indev);
+    //lv_indev_drv_t indev;
+    //lv_indev_drv_init(&indev);
+    //indev.read = xpt2046_read;
+    //indev.type = LV_INDEV_TYPE_POINTER;
+    //lv_indev_drv_register(&indev);
 
 	esp_register_freertos_tick_hook(lv_tick_task);
 
-	demo_create();
+    demo_create();
+	//benchmark_create();
+    //benchmark_start();
 
 	while(1) {
 		vTaskDelay(1);

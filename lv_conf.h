@@ -1,6 +1,6 @@
 /**
  * @file lv_conf.h
- * 
+ *
  */
 
 #ifndef LV_CONF_H
@@ -31,7 +31,7 @@
 
 /* Horizontal and vertical resolution of the library.*/
 #define LV_HOR_RES          (320)
-#define LV_VER_RES          (240)
+#define LV_VER_RES          (480)
 #define LV_DPI              100
 
 /* Size of VDB (Virtual Display Buffer: the internal graphics buffer).
@@ -133,7 +133,7 @@
 #define LV_OBJ_FREE_PTR         1           /*Enable the free pointer attribute*/
 
 /*==================
- *  LV OBJ X USAGE 
+ *  LV OBJ X USAGE
  *================*/
 /*
  * Documentation of the object types: https://littlevgl.com/object-types

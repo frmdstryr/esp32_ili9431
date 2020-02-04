@@ -1,24 +1,24 @@
 /**
  * @file lv_ex_conf.h
- * 
+ *
  */
 
 #ifndef LV_EX_CONF_H
 #define LV_EX_CONF_H
 
 /*******************
- *   TEST USAGE    
+ *   TEST USAGE
  *******************/
 #define USE_LV_TESTS   0
 
 /*******************
- * TUTORIAL USAGE    
+ * TUTORIAL USAGE
  *******************/
 #define USE_LV_TUTORIALS   0
 
 
 /*********************
- * APPLICATION USAGE    
+ * APPLICATION USAGE
  *********************/
 
 /* Test the graphical performance of your MCU
